@@ -33,7 +33,7 @@ class herqles::manager (
 
   herqles::component { 'hq-manager':
     pkgname      => 'hq-manager',
-    repo         => 'git+ssh://git@git.innova-partners.com/infrastructure/cmt-Manager.git',
+    repo         => 'git+https://github.com/herqles-io/hq-manager.git',
     install_args => [ '--process-dependency-links' ],
     version      => $version,
     config       => $config
