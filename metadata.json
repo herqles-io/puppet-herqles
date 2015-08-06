@@ -1,0 +1,22 @@
+{
+  "name": "covermymeds-herqles",
+  "version": "1.0.0",
+  "author": "CoverMyMeds - Ryan Belgrave <rbelgrave@covermymeds.com>",
+  "license": "MIT",
+  "summary": "Herqles Installation and Management",
+  "source": "https://github.com/herqles-io/puppet-herqles",
+  "project_page": "https://github.com/herqles-io/puppet-herqles",
+  "issues_url": "https://github.com/herqles-io/puppet-herqles",
+  "tags": ["hq", "herqles", "herq"],
+  "operatingsystem_support": [
+    { "operatingsystem": "RedHat", "operatingsystemrelease": [ "6", "7" ] },
+    { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6", "7" ] }
+  ],
+  "requirements": [
+    { "name": "puppet", "version_requirement": ">=3.0.0 < 4.0.0" }
+  ],
+  "dependencies": [
+    { "name": "puppetlabs/stdlib", "version_requirement": "4.x" },
+    { "name": "stankevich/python", "version_requirements": "1.9.x" }
+  ]
+}
