@@ -1,0 +1,14 @@
+[Unit]
+Description=<%= @name %>
+After=network.target
+
+[Service]
+User=<%= @user %>
+EnvironmentFile=/etc/sysconfig/herqles
+PermissionsStartOnly=true
+ExecStartPre=-/usr/bin/mkdir -p /var/run/herqles
+ExecStartPre=/usr/bin/chown -R <%= @user %>:<%= @user %> /var/run/herqles
+ExecStart=<%= @install_path %>/venv/bin/<%= @name %> -c <%= @config_path %>/<%= @name %>/config.yml
+
+[Install]
+WantedBy=multi-user.target
