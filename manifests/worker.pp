@@ -24,7 +24,7 @@ class herqles::worker (
 
   herqles::component { 'hq-worker':
     pkgname      => 'hq-worker',
-    repo         => 'git+ssh://git@git.innova-partners.com/infrastructure/cmt-worker.git',
+    repo         => 'git+https://github.com/herqles-io/hq-worker.git',
     install_args => [ '--process-dependency-links' ],
     version      => $version,
     config       => $config

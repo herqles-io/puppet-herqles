@@ -60,7 +60,13 @@ class { '::herqles::ldap':
 include ::herqles::manager
 
 class { '::herqles::manager::identity':
-  driver => 'LDAP'
+  driver => 'LDAP',
+  driver_config => { 
+    'mapping' => {
+      "CN=HQ Admins" => [ 'herqles.*' ],
+      "CN=HQ Devs"   => [ 'herqles.task.get', 'herqles.job.get', 'herqles.worker.get' ]
+    } 
+  }
 }
 
 class { '::herqles::manager::assignment':
