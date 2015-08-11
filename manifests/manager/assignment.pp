@@ -11,7 +11,7 @@ class herqles::manager::assignment (
     require ::herqles::ldap
 
     $output_driver = {
-      driver => 'cmtmanager.assignment.ldap_driver'
+      driver => 'hqmanager.assignment.ldap_driver'
     }
 
   } elsif $driver == 'SQL' {
@@ -23,7 +23,7 @@ class herqles::manager::assignment (
     validate_string($driver_config['admin_username'])
 
     $output_driver = {
-      driver => 'cmtmanager.assignment.sql_driver'
+      driver => 'hqmanager.assignment.sql_driver'
     }
 
   } elsif $driver == 'Other' {
