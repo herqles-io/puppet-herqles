@@ -11,7 +11,7 @@ class herqles::manager::identity (
     require ::herqles::ldap
 
     $output_driver = {
-      driver => 'cmtmanager.identity.ldap_driver'
+      driver => 'hqmanager.identity.ldap_driver'
     }
 
   } elsif $driver == 'Other' {
