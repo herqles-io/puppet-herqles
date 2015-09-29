@@ -59,7 +59,7 @@ class herqles (
 
   if $rotate_logs {
 
-    require logrotate::base
+    require ::logrotate
 
     logrotate::rule { 'herqles-logs':
       ensure       => present,
