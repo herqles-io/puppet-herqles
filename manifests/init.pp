@@ -69,7 +69,7 @@ class herqles (
       ifempty      => false,
       copytruncate => true,
       create       => true,
-      create_mode  => 0644,
+      create_mode  => '0644',
       create_owner => $user,
       create_group => $user,
       rotate       => 1,
