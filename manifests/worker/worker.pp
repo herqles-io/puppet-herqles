@@ -4,17 +4,17 @@ define herqles::worker::worker (
 
   require ::herqles
 
-  $install_path = $herqles::install_path
-  $config_path = $herqles::config_path
-  $user = $herqles::user
+  $install_path   = $herqles::install_path
+  $config_path    = $herqles::config_path
+  $user           = $herqles::user
   $manage_service = $herqles::manage_service
-  $datacenter = $herqles::datacenter
+  $datacenter     = $herqles::datacenter
 
-  $module = getparam(Herqles::Worker::Worker_data[$name], "module")
-  $pkgname = getparam(Herqles::Worker::Worker_data[$name], "pkgname")
-  $version = getparam(Herqles::Worker::Worker_data[$name], "version")
-  $repo = getparam(Herqles::Worker::Worker_data[$name], "repo")
-  $install_args = getparam(Herqles::Worker::Worker_data[$name], "install_args")
+  $module       = getparam(Herqles::Worker::Worker_data[$name], 'module')
+  $pkgname      = getparam(Herqles::Worker::Worker_data[$name], 'pkgname')
+  $version      = getparam(Herqles::Worker::Worker_data[$name], 'version')
+  $repo         = getparam(Herqles::Worker::Worker_data[$name], 'repo')
+  $install_args = getparam(Herqles::Worker::Worker_data[$name], 'install_args')
 
   $config = merge($worker_config, { 'module' => $module, 'datacenter' => $datacenter })
 
@@ -38,7 +38,7 @@ define herqles::worker::worker (
     group   => $user,
     content => template('herqles/config.yml.erb'),
     require => Python::Pip[$pkgname],
-    notify => Exec['hq-worker config reload']
+    notify  => Exec['hq-worker config reload']
   }
 
   if $manage_service {

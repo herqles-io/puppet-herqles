@@ -8,16 +8,16 @@ class herqles::worker (
   require ::herqles
   require ::herqles::rabbitmq
 
-  $config_path = $herqles::config_path
-  $log_path = $herqles::log_path
-  $user = $herqles::user
+  $config_path    = $herqles::config_path
+  $log_path       = $herqles::log_path
+  $user           = $herqles::user
   $manage_service = $herqles::manage_service
 
   $config = {
     rabbitmq   => $herqles::rabbitmq::output,
     paths      => {
       logs           => $log_path,
-      pid            => "/var/run/herqles/hq-worker.pid",
+      pid            => '/var/run/herqles/hq-worker.pid',
       worker_configs => "${config_path}/hq-worker/config.d"
     }
   }
@@ -55,9 +55,9 @@ class herqles::worker (
 
   }
 
-  exec { "hq-worker config reload":
-    command     => "kill -s SIGUSR2 $(cat /var/run/herqles/hq-worker.pid)",
-    onlyif      => "test -f /var/run/herqles/hq-worker.pid",
+  exec { 'hq-worker config reload':
+    command     => 'kill -s SIGUSR2 $(cat /var/run/herqles/hq-worker.pid)',
+    onlyif      => 'test -f /var/run/herqles/hq-worker.pid',
     path        => [ '/bin', '/usr/bin' ],
     refreshonly => true
   }

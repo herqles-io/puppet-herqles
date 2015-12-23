@@ -44,9 +44,9 @@ define herqles::component (
   }
   if !defined(File['/etc/sysconfig/herqles']) {
     file { '/etc/sysconfig/herqles':
-      ensure => file,
-      owner  => $user,
-      group  => $user,
+      ensure  => file,
+      owner   => $user,
+      group   => $user,
       content => template('herqles/sysconfig.erb'),
     }
   }

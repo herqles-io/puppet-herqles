@@ -29,17 +29,17 @@ class herqles::database (
     -> Class['::postgresql::lib::devel']
 
     python::pip { 'psycopg2==2.6':
-      ensure       => 'present',
-      virtualenv   => "${install_path}/venv",
-      owner        => $user,
-      require      => [ Class['::postgresql::globals'], Class['::postgresql::client'], Class['::postgresql::lib::devel'] ]
+      ensure     => 'present',
+      virtualenv => "${install_path}/venv",
+      owner      => $user,
+      require    => [ Class['::postgresql::globals'], Class['::postgresql::client'], Class['::postgresql::lib::devel'] ]
     }
   } elsif $driver == 'mysql' {
 
     python::pip { 'pymysql==0.6.6':
-      ensure       => 'present',
-      virtualenv   => "${install_path}/venv",
-      owner        => $user,
+      ensure     => 'present',
+      virtualenv => "${install_path}/venv",
+      owner      => $user,
     }
 
   } else {
