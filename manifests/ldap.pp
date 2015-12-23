@@ -17,10 +17,10 @@ class herqles::ldap (
   ensure_packages([ 'openldap-devel' ])
 
   python::pip { 'python-ldap==2.4.19':
-    ensure       => 'present',
-    virtualenv   => "${::herqles::install_path}/venv",
-    owner        => $::herqles::user,
-    require      => Package['openldap-devel']
+    ensure     => 'present',
+    virtualenv => "${::herqles::install_path}/venv",
+    owner      => $::herqles::user,
+    require    => Package['openldap-devel']
   }
 
   $output = {

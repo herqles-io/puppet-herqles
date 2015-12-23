@@ -1,9 +1,9 @@
 define herqles::cli::plugin (
   $pkgname,
+  $module,
   $repo=None,
   $version='present',
   $install_args=[],
-  $module,
   $base_config={}
 ) {
 

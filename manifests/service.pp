@@ -1,5 +1,9 @@
 define herqles::service {
 
+  $config_path  = $herqles::config_path
+  $user         = $herqles::user
+  $install_path = $herqles::install_path
+
   if $operatingsystemrelease =~ /^6.*/ {
     if $initd_file == None {
       fail('initd service template must be given')
@@ -13,7 +17,7 @@ define herqles::service {
       group   => 'root',
       content => template('herqles/service/init.d.erb'),
       require => Python::Pip[$name],
-      notify => Service[$name],
+      notify  => Service[$name],
     }
     service { $name:
       ensure  => running,
@@ -37,7 +41,7 @@ define herqles::service {
       notify  => Exec["${name} systemd reload"],
     }
     exec {"${name} systemd reload":
-      command     => "/bin/systemctl daemon-reload",
+      command     => '/bin/systemctl daemon-reload',
       refreshonly => true,
       notify      => Service[$name]
     }

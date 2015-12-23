@@ -19,7 +19,7 @@ class herqles::manager (
     assignment => $herqles::manager::assignment::output,
     paths      => {
       logs => $log_path,
-      pid  => "/var/run/herqles/hq-manager.pid"
+      pid  => '/var/run/herqles/hq-manager.pid'
     }
   }
 

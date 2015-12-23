@@ -11,14 +11,14 @@ class herqles::cli (
   require ::herqles
 
   $install_path = $herqles::install_path
-  $user = $herqles::user
+  $user         = $herqles::user
 
   python::pip { 'hq-cli':
-    ensure       => $version,
-    pkgname      => 'hq-cli',
-    url          => 'git+https://github.com/herqles-io/hq-cli.git',
-    virtualenv   => "${install_path}/venv",
-    owner        => $user,
+    ensure     => $version,
+    pkgname    => 'hq-cli',
+    url        => 'git+https://github.com/herqles-io/hq-cli.git',
+    virtualenv => "${install_path}/venv",
+    owner      => $user,
   }
 
   $base_config = {
@@ -38,7 +38,7 @@ class herqles::cli (
     $config = $user_config
   }
 
-  file { "/usr/local/bin/herq":
+  file { '/usr/local/bin/herq':
     ensure  => file,
     mode    => '0755',
     owner   => 'root',

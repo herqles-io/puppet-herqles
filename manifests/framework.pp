@@ -21,7 +21,7 @@ class herqles::framework (
     sql        => $herqles::database::output,
     paths      => {
       logs              => $log_path,
-      pid               => "/var/run/herqles/hq-framework.pid",
+      pid               => '/var/run/herqles/hq-framework.pid',
       framework_configs => "${config_path}/hq-framework/config.d"
     }
   }

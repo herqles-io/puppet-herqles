@@ -4,17 +4,17 @@ define herqles::framework::framework (
 
   require ::herqles
 
-  $install_path = $herqles::install_path
-  $config_path = $herqles::config_path
-  $user = $herqles::user
+  $install_path   = $herqles::install_path
+  $config_path    = $herqles::config_path
+  $user           = $herqles::user
   $manage_service = $herqles::manage_service
-  $datacenter = $herqles::datacenter
+  $datacenter     = $herqles::datacenter
 
-  $module = getparam(Herqles::Framework::Framework_data[$name], "module")
-  $pkgname = getparam(Herqles::Framework::Framework_data[$name], "pkgname")
-  $version = getparam(Herqles::Framework::Framework_data[$name], "version")
-  $repo = getparam(Herqles::Framework::Framework_data[$name], "repo")
-  $install_args = getparam(Herqles::Framework::Framework_data[$name], "install_args")
+  $module       = getparam(Herqles::Framework::Framework_data[$name], 'module')
+  $pkgname      = getparam(Herqles::Framework::Framework_data[$name], 'pkgname')
+  $version      = getparam(Herqles::Framework::Framework_data[$name], 'version')
+  $repo         = getparam(Herqles::Framework::Framework_data[$name], 'repo')
+  $install_args = getparam(Herqles::Framework::Framework_data[$name], 'install_args')
 
   $config = merge($framework_config, { 'module' => $module, 'datacenter' => $datacenter })
 
