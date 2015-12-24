@@ -44,7 +44,7 @@ class herqles::worker (
 
   } else {
 
-    file { "${config_paoth}/hq-worker/config.d":
+    file { "${config_path}/hq-worker/config.d":
       ensure  => directory,
       owner   => $user,
       group   => $user,
