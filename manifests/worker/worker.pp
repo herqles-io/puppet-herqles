@@ -18,7 +18,7 @@ define herqles::worker::worker (
 
   $config = merge($worker_config, { 'module' => $module, 'datacenter' => $datacenter })
 
-  if !defined(python::pip[$pkgname]) {
+  if !defined(Python::Pip[$pkgname]) {
 
     python::pip { $pkgname:
       ensure       => $version,
