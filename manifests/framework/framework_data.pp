@@ -3,7 +3,7 @@ define herqles::framework::framework_data (
   $pkgname,
   $version='present',
   $repo=undef,
-  $install_args,
+  $install_args=undef,
 ) {
 
   validate_string($module)

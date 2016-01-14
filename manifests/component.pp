@@ -3,7 +3,7 @@ define herqles::component (
   $config,
   $repo=None,
   $version='present',
-  $install_args,
+  $install_args=undef,
 ) {
 
   require ::herqles
