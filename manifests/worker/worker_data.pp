@@ -3,7 +3,7 @@ define herqles::worker::worker_data (
   $pkgname,
   $version='present',
   $repo=undef,
-  $install_args=[]
+  $install_args,
 ) {
 
   validate_string($module)
@@ -12,6 +12,5 @@ define herqles::worker::worker_data (
   if $repo != undef {
     validate_string($repo)
   }
-  validate_array($install_args)
 
 }

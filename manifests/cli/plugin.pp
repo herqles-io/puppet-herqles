@@ -3,7 +3,7 @@ define herqles::cli::plugin (
   $module,
   $repo=None,
   $version='present',
-  $install_args=[],
+  $install_args,
   $base_config={}
 ) {
 
@@ -15,14 +15,13 @@ define herqles::cli::plugin (
   $user = $herqles::user
 
   if !defined(Python::Pip[$pkgname]) {
-    $_install_args_string = join($install_args, ' ')
     python::pip { $pkgname:
       ensure       => $version,
       pkgname      => $pkgname,
       url          => $repo,
       virtualenv   => "${install_path}/venv",
       owner        => $user,
-      install_args => $_install_args_string,
+      install_args => $install_args,
     }
   }
 

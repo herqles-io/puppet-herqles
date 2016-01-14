@@ -25,7 +25,7 @@ class herqles::worker (
   herqles::component { 'hq-worker':
     pkgname      => 'hq-worker',
     repo         => 'git+https://github.com/herqles-io/hq-worker.git',
-    install_args => [ '--process-dependency-links' ],
+    install_args => '--process-dependency-links',
     version      => $version,
     config       => $config
   }
