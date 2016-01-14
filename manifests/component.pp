@@ -3,7 +3,7 @@ define herqles::component (
   $config,
   $repo=None,
   $version='present',
-  $install_args=[]
+  $install_args,
 ) {
 
   require ::herqles
@@ -17,7 +17,6 @@ define herqles::component (
   if $repo != None {
     validate_string($repo)
   }
-  validate_array($install_args)
   validate_hash($config)
 
   python::pip { $pkgname:
@@ -53,11 +52,8 @@ define herqles::component (
 
   if $manage_service {
     herqles::service { $name:
-      subscribe => [ File["${config_path}/${name}/config.yml"], File['/etc/sysconfig/herqles'] ],
-      require   => [
-        File["${config_path}/${name}/config.yml"],
-        File['/etc/sysconfig/herqles']
-      ]
+      subscribe => File["${config_path}/${name}/config.yml", '/etc/sysconfig/herqles' ],
+      require   => File["${config_path}/${name}/config.yml", '/etc/sysconfig/herqles'],
     }
   }
 

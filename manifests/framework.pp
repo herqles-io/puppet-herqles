@@ -29,7 +29,7 @@ class herqles::framework (
   herqles::component { 'hq-framework':
     pkgname      => 'hq-framework',
     repo         => 'git+https://github.com/herqles-io/hq-framework.git',
-    install_args => [ '--process-dependency-links' ],
+    install_args => '--process-dependency-links',
     version      => $version,
     config       => $config,
   }
