@@ -3,7 +3,7 @@ define herqles::cli::plugin (
   $module,
   $repo=None,
   $version='present',
-  $install_args,
+  $install_args=undef,
   $base_config={}
 ) {
 
